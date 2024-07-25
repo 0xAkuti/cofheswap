@@ -37,6 +37,10 @@ contract CofheSwap {
         euint32 amountOutF1 = FHE.sub(FHE.mul(FHE.asEuint32(2), k), amountIn);
         euint32 amountOutF2 = FHE.sub(FHE.mul(FHE.asEuint32(6), k), FHE.mul(FHE.asEuint32(9), amountIn));
         euint32 amountOut = FHE.select(FHE.gt(amountIn, threshold), amountOutF1, amountOutF2);
-        token0.transferEncrypted(to, FHE.asEuint128(amountOut));
+
+        reserve0 = FHE.sub(reserve0, amountOut);
+        reserve1 = FHE.add(reserve1, amountIn);
+        token0.transferFromEncrypted(msg.sender, address(this), FHE.asEuint128(amountIn));
+        token1.transferEncrypted(to, FHE.asEuint128(amountOut));
     }
 }
