@@ -3,9 +3,6 @@
 # TLDR:
 Division in FHE is expensive so we use a bunch of CSMM invariants, which use subtraction, to approximate a CPMM such as Uniswap.
 
-
-Fully Homomorphic Encryption (FHE) allows for the obfuscation of a swap through an AMM.
-
 # Problem:
 
 The cost of encrypting variables and swapping requires division for an invariant curve due to its non-linear properties (xy=k is a hyperbola).
@@ -15,9 +12,8 @@ The cost of encrypting variables and swapping requires division for an invariant
 Circumvent the use of division in FHE through an approximation with a series of linear equations.
 
 <img width="772" alt="covfefe1" src="https://github.com/user-attachments/assets/3659afba-248e-4284-94ac-2f91edbf96d2">
-In this case we create two encrypted tokens: COFHEFHE and USD on x and y axes respectively. As one buys more COFHEFHE we follow the blue line, until a large enough amount is bought that a second blue line is selected. Desmos: https://www.desmos.com/calculator/wi8y6p8s8e
 
-We have implemented just two linear equations, but it can be as granular as one wants. If one implements an infinite amount of linear equations, one would recreate the constant product market maker. 
+In this case we create two encrypted tokens: COFHEFHE and USD on x and y axes respectively. As one buys more COFHEFHE we follow the blue line, until a large enough amount is bought that a second blue line is selected. Desmos: https://www.desmos.com/calculator/wi8y6p8s8e. We have implemented just two linear equations, but it can be as granular as one wants. If one implements an infinite amount of linear equations, one would recreate the constant product market maker. 
 
 <img width="1540" alt="covfefe4" src="https://github.com/user-attachments/assets/7ad045ca-4f5a-4c26-b34a-6780f72948d1">
 
