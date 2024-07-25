@@ -8,6 +8,7 @@
     "compile": "hardhat compile",
     "task:deploy": "hardhat deploy",
     "task:getFunds": "hardhat task:getFunds",
+    "task:mintTokens": "hardhat task:mintTokens",
     "localfhenix:start": "hardhat localfhenix:start",
     "localfhenix:stop": "hardhat localfhenix:stop",
     "faucet": "hardhat task:fhenix:usefaucet"
