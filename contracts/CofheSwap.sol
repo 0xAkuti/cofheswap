@@ -31,15 +31,14 @@ contract CofheSwap {
     }
 
     function swap(inEuint32 calldata encryptedAmount, address to) external {
-        // swap, for now only in one direction TODO: add buying
+        // swap, for now only in one direction
         euint32 amountIn = FHE.asEuint32(encryptedAmount);
         euint32 k = FHE.add(reserve0, reserve1);
-        euint32 amountOutF1 = FHE.sub(FHE.mul(FHE.asEuint32(2), k), amountIn);
-        euint32 amountOutF2 = FHE.sub(FHE.mul(FHE.asEuint32(6), k), FHE.mul(FHE.asEuint32(9), amountIn));
-        euint32 amountOut = FHE.select(FHE.gt(amountIn, threshold), amountOutF1, amountOutF2);
+        euint32 amountOutF2 = FHE.sub(FHE.mul(FHE.asEuint32(3), k), FHE.mul(FHE.asEuint32(9), amountIn));
+        euint32 amountOut = FHE.select(FHE.lt(reserve1, threshold), amountIn, amountOutF2);
 
-        reserve0 = FHE.sub(reserve0, amountOut);
-        reserve1 = FHE.add(reserve1, amountIn);
+        reserve0 = FHE.add(reserve0, amountIn);
+        reserve1 = FHE.sub(reserve1, amountOut);
         token0.transferFromEncrypted(msg.sender, address(this), FHE.asEuint128(amountIn));
         token1.transferEncrypted(to, FHE.asEuint128(amountOut));
     }
