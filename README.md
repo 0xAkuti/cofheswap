@@ -23,10 +23,11 @@ Due to the rigid and sharp nature of the curve we could call it a ridgeAMM.
 
 -----------------------
 
-# Fhenix Hardhat Example [![Open in Gitpod][gitpod-badge]][gitpod]
+# Fhenix Hardhat Example [![Open in Gitpod][gitpod-badge]][gitpod] [![Open in Codeanywhere][codeanywhere-badge]][codeanywhere]
 
 
-
+[codeanywhere]: https://app.codeanywhere.com/#https://github.com/fhenixprotocol/fhenix-hardhat-example
+[codeanywhere-badge]: https://img.shields.io/badge/Codeanywhere-Open%20in%20Codeanywhere-1EAEDB?logo=codeanywhere
 
 [gitpod]: https://gitpod.io/#https://github.com/fhenixprotocol/fhenix-hardhat-example
 [gitpod-badge]: https://img.shields.io/badge/Gitpod-Open%20in%20Gitpod-FFB45B?logo=gitpod
